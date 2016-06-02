@@ -8,6 +8,9 @@ MapView
 MapView is a Kivy widget that display maps.
 """
 
+from kivy import kivy_home_dir
+from os.path import join
+
 __all__ = ["Coordinate", "Bbox", "MapView", "MapSource", "MapMarker",
            "MapLayer", "MarkerMapLayer", "MapMarkerPopup"]
 __version__ = "0.2"
@@ -16,7 +19,7 @@ MIN_LATITUDE = -90.
 MAX_LATITUDE = 90.
 MIN_LONGITUDE = -180.
 MAX_LONGITUDE = 180.
-CACHE_DIR = "cache"
+CACHE_DIR = join(kivy_home_dir, 'cache')
 
 try:
     # fix if used within garden
