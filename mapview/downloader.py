@@ -10,7 +10,7 @@ from random import choice
 import requests
 import traceback
 from time import time
-from mapview import CACHE_DIR
+from mapview import CACHE
 
 
 class Downloader(object):
@@ -35,8 +35,8 @@ class Downloader(object):
         self.executor = ThreadPoolExecutor(max_workers=max_workers)
         self._futures = []
         Clock.schedule_interval(self._check_executor, 1 / 60.)
-        if not exists(CACHE_DIR):
-            makedirs(CACHE_DIR)
+        if not exists(CACHE['directory']):
+            makedirs(CACHE['directory'])
 
     def submit(self, f, *args, **kwargs):
         future = self.executor.submit(f, *args, **kwargs)
