@@ -17,7 +17,7 @@ from kivy.lang import Builder
 from kivy.compat import string_types
 from math import ceil
 from mapview import MIN_LONGITUDE, MAX_LONGITUDE, MIN_LATITUDE, MAX_LATITUDE, \
-    CACHE_DIR, Coordinate, Bbox
+    CACHE, Coordinate, Bbox
 from mapview.source import MapSource
 from mapview.utils import clamp
 
@@ -87,7 +87,7 @@ class Tile(Rectangle):
             image_ext=map_source.image_ext,
             cache_key=map_source.cache_key,
             **self.__dict__)
-        return join(CACHE_DIR, fn)
+        return join(CACHE['directory'], fn)
 
     def set_source(self, cache_fn):
         self.source = cache_fn
@@ -479,9 +479,10 @@ class MapView(Widget):
 
     # Private API
 
-    def __init__(self, **kwargs):
+    def __init__(self, cache_dir='cache', **kwargs):
         from kivy.base import EventLoop
         EventLoop.ensure_window()
+        CACHE['directory'] = cache_dir
         self._invalid_scale = True
         self._tiles = []
         self._tiles_bg = []
