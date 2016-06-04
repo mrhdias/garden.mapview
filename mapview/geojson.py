@@ -313,7 +313,7 @@ class GeoJsonMapLayer(MapLayer):
 
         elif tp == "LineString":
             stroke = get_color_from_hex(properties.get("stroke", "#ffffff"))
-            stroke_width = dp(properties.get("stroke-width"))
+            stroke_width = dp(properties.get("stroke-width", 2))
             xy = list(self._lonlat_to_xy(geometry["coordinates"]))
             xy = flatten(xy)
             graphics.append(Color(*stroke))
