@@ -22,8 +22,7 @@ class Downloader(object):
 
         if not exists(CACHE['directory']):
             makedirs(CACHE['directory'])
-
-
+    
     def download_tile(self, tile):
         if tile.state == "done":
             return
