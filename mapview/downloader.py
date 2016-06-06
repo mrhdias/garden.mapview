@@ -28,7 +28,14 @@ class Downloader(object):
             return
         cache_fn = tile.cache_fn
         if exists(cache_fn):
-            tile.set_source(cache_fn)
+            ### libpng error: IDAT: invalid distance too far back
+            ### libpng error: IDAT: invalid distance too far back
+            try:
+                tile.set_source(cache_fn)
+                return
+            except:
+                os.remove(cache_fn)
+            
         tile_y = tile.map_source.get_row_count(tile.zoom) - tile.tile_y - 1
         uri = tile.map_source.url.format(z=tile.zoom,
                                          x=tile.tile_x,
