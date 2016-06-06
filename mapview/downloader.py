@@ -4,7 +4,7 @@ __all__ = ["Downloader"]
 
 from kivy.network.urlrequest import UrlRequest
 from os.path import join, exists
-from os import makedirs
+from os import makedirs, remove
 from random import choice
 from mapview import CACHE
 
@@ -33,7 +33,7 @@ class Downloader(object):
                 tile.set_source(cache_fn)
                 return
             except:
-                os.remove(cache_fn)
+                remove(cache_fn)
             
         tile_y = tile.map_source.get_row_count(tile.zoom) - tile.tile_y - 1
         uri = tile.map_source.url.format(z=tile.zoom,
