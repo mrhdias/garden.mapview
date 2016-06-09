@@ -43,9 +43,14 @@ class Downloader(object):
 
         def success(request, result):
             # print('SUCCESS:', request.file_path)
-            tile.set_source(request.file_path)
+            try:
+                tile.set_source(request.file_path)
+            except:
+                remove(request.file_path)
+
         def failure(request, result):
             pass
+
         def error(request, error):
             pass
 
