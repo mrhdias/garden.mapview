@@ -1,0 +1,11 @@
+{
+    "center": {"lat": 41.146305, "lon": -8.611448},
+    "list": [
+        {"lat": 41.1447289, "lon": -8.6158695, "image": "images/01.jpg"},
+        {"lat": 41.143075,  "lon": -8.611558,  "image": "images/02.jpg"},
+        {"lat": 41.1446052, "lon": -8.6102259, "image": "images/03.jpg"},
+        {"lat": 41.1410082, "lon": -8.6092228, "image": "images/04.jpg"},
+        {"lat": 41.148017,  "lon": -8.611103,  "image": "images/05.jpg"},
+        {"lat": 41.152277,  "lon": -8.609299,  "image": "images/06.jpg"}
+    ]
+}
