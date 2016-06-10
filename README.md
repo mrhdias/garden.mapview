@@ -24,7 +24,7 @@ the latests state-of-the-art Kivy's methods.
 
 # ~~Requirements~~
 
-Don't require anything anymore (now use the UrlRequest from kivy)
+Don't require anything anymore (now use the [UrlRequest](https://kivy.org/docs/api-kivy.network.urlrequest.html) from kivy)
 
 ~~It requires the `concurrent.futures` and `requests`. If you are on python 2.7,
 you can use `futures`:~~
