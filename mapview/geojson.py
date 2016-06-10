@@ -314,7 +314,7 @@ class GeoJsonMapLayer(MapLayer):
                                      mode="triangle_fan"))
 
         elif tp == "LineString":
-            stroke = get_color_from_hex(properties.get("stroke", "#ffffff"))
+            stroke = get_color_from_hex(properties.get("stroke", "#ff000088"))
             stroke_width = dp(properties.get("stroke-width", 2))
             xy = list(self._lonlat_to_xy(geometry["coordinates"]))
             xy = flatten(xy)
@@ -327,10 +327,11 @@ class GeoJsonMapLayer(MapLayer):
         view = self.parent
         zoom = view.zoom
         for lon, lat in lonlats:
-            p = view.get_window_xy_from(lat, lon, zoom)
-            p = p[0] - self.parent.delta_x, p[1] - self.parent.delta_y
-            p = self.parent._scatter.to_local(*p)
-            yield p
+            yield view.get_window_xy_from(lat, lon, zoom)
+            # p = view.get_window_xy_from(lat, lon, zoom)
+            # p = p[0] - self.parent.delta_x, p[1] - self.parent.delta_y
+            # p = self.parent._scatter.to_local(*p)
+            # yield p
 
     def _get_color_from(self, value):
         color = COLORS.get(value.lower(), value)
