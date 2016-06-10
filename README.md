@@ -26,15 +26,15 @@ the latests state-of-the-art Kivy's methods.
 
 Don't require anything anymore (now use the UrlRequest from kivy)
 
-It requires the `concurrent.futures` and `requests`. If you are on python 2.7,
-you can use `futures`:
+~~It requires the `concurrent.futures` and `requests`. If you are on python 2.7,
+you can use `futures`:~~
 
 ```
-pip install futures requests
+~~pip install futures requests~~
 ```
 
-If you use it on Android / iOS, don't forget to add `openssl` as a requirements,
-otherwise you'll have an issue when importing `urllib3` from `requests`.
+~~If you use it on Android / iOS, don't forget to add `openssl` as a requirements,
+otherwise you'll have an issue when importing `urllib3` from `requests`.~~
 
 # Install
 
