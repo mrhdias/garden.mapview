@@ -22,7 +22,7 @@ the latests state-of-the-art Kivy's methods.
 * supports Z/X/Y providers by default with `MapSource`
 * supports [.mbtiles](http://mbtiles.org) via `MBTilesMapSource`
 
-# Requirements
+# ~~Requirements~~
 
 It requires the `concurrent.futures` and `requests`. If you are on python 2.7,
 you can use `futures`:
