@@ -30,7 +30,7 @@ Don't require anything anymore (now use the UrlRequest from kivy)
 you can use `futures`:~~
 
 ```
-~~pip install futures requests~~
+pip install futures requests
 ```
 
 ~~If you use it on Android / iOS, don't forget to add `openssl` as a requirements,
