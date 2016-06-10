@@ -256,7 +256,9 @@ class GeoJsonMapLayer(MapLayer):
         if value.startswith("http://") or value.startswith("https://"):
             Downloader.instance().download(value, self._load_geojson_url)
         else:
-            with open(value, "rb") as fd:
+            # "rb" was replaced by "r" to avoid this error:
+            # TypeError: the JSON object must be str, not 'bytes'
+            with open(value, "r") as fd:
                 geojson = json.load(fd)
             self.geojson = geojson
 
