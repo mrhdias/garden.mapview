@@ -22,7 +22,7 @@ __all__ = ["GeoJsonMapLayer"]
 import json
 from kivy.properties import StringProperty, ObjectProperty
 from kivy.graphics import (Canvas, PushMatrix, PopMatrix, MatrixInstruction,
-                           Translate, Scale)
+                           Translate, Scale, ScissorPush, ScissorPop)
 from kivy.utils import get_color_from_hex
 from mapview.view import MapLayer
 from mapview.downloader import Downloader
@@ -208,8 +208,10 @@ class GeoJsonMapLayer(MapLayer):
     def __init__(self, **kwargs):
         super(GeoJsonMapLayer, self).__init__(**kwargs)
         with self.canvas:
+            self.scissor = ScissorPush(x=0, y=0, width=100, height=100)
             self.canvas_polygon = Canvas()
             self.canvas_line = Canvas()
+            ScissorPop()
         with self.canvas_polygon.before:
             PushMatrix()
             self.g_matrix = MatrixInstruction()
@@ -221,6 +223,11 @@ class GeoJsonMapLayer(MapLayer):
             PopMatrix()
 
     def reposition(self):
+        self.scissor.x = self.parent.parent.x
+        self.scissor.width = self.parent.parent.width
+        self.scissor.y = self.parent.parent.y
+        self.scissor.height = self.parent.parent.height
+
         vx, vy = self.parent.delta_x, self.parent.delta_y
         pzoom = self.parent.zoom
         zoom = self.initial_zoom
